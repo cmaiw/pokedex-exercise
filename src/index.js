@@ -1,5 +1,5 @@
 import {
-  // createNoPokemons,
+  createNoPokemons,
   createPokemonElements,
   setChild,
   resetInput,
@@ -40,6 +40,11 @@ searchInput.addEventListener('input', event => {
   console.log(pokemons);
   const pokemonList = createPokemonElements(pokemons);
   setChild(resultsElement, pokemonList);
+
+  if (pokemons.length === 0) {
+    const noPokemonsElement = createNoPokemons();
+    setChild(resultsElement, noPokemonsElement);
+  }
 });
 
 // sortButton.addEventListener('click', function() {
